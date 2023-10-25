@@ -334,13 +334,9 @@ impl Plugin for ClothPlugin {
             ),
         );
         #[cfg(feature = "rapier_collisions")]
-        app.register_type::<ClothCollider>().add_systems(
-            Update,
-            (
-                systems::collisions::init_cloth_collider,
-                systems::collisions::handle_collisions.before(systems::cloth::render),
-            ),
-        );
+        app.register_type::<ClothCollider>()
+            .add_systems(Update, systems::collisions::init_cloth_collider)
+            .add_systems(FixedUpdate, systems::collisions::handle_collisions);
         bevy::log::info!("Loaded Cloth Plugin");
     }
 }
