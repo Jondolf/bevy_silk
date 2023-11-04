@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+* Collisions happen on fixed update schedule (#20)
 * Fixed clippy warnings for rust 1.72.0 (#19)
 * Added rustfmt config (#19)
 * Added vertex colors in flag example (#19)
